@@ -240,11 +240,8 @@ function suggestUpgrades(
   // RAM upgrade suggestion: push to 32GB DDR4/DDR5 or higher speed
   if (ramGb < 32 || (ramGen === "DDR3" && ramGb < 16)) {
     const targetGb = ramGb < 16 ? 16 : 32;
-    const targetGen = ramGen === "DDR3" ? "DDR4" : ramGen;
     const targetSpeed =
-      targetGen === "DDR3" ? 1866 :
-      targetGen === "DDR4" ? 3200 :
-      5600;
+      ramGen === "DDR4" ? 3200 : 5600;
 
     const tableNew = scaleFpsTable(
       baseline.table,
